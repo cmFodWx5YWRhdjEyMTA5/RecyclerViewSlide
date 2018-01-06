@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void runAnimation(RecyclerView recyclerView, int type) {
 
-        Context context =recyclerView.getContext();
-        LayoutAnimationController controller =null;
+            Context context =recyclerView.getContext();
+            LayoutAnimationController controller =null;
 
         if (type == 0)
             controller = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_to_down);

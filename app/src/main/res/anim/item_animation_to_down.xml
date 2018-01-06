@@ -2,8 +2,6 @@
 <set
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:duration="@integer/amination_dur_medium">
-
-
     <translate
         android:fromYDelta="-20%"
         android:toYDelta="0"
@@ -22,8 +20,6 @@
         android:pivotX="50%"
         android:pivotY="50%"
         android:interpolator ="@android:anim/decelerate_interpolator"/>
-
-
 
     >
 
