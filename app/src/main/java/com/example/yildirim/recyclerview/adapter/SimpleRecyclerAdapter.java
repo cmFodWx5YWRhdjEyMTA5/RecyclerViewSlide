@@ -2,20 +2,19 @@ package com.example.yildirim.recyclerview.adapter;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.amulyakhare.textdrawable.TextDrawable;
-import com.example.yildirim.recyclerview.MainActivity;
 import com.example.yildirim.recyclerview.R;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by Yildirim on 5.01.2018.
@@ -74,14 +73,12 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
 
     public static class SimpleViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textView;
-        public ImageView image;
+        @BindView(R.id.textView)TextView textView;
+        @BindView(R.id.image_view)ImageView image;
 
         public SimpleViewHolder(View itemView) {
             super(itemView);
-
-            textView = (TextView) itemView.findViewById(R.id.textView);
-             image = (ImageView) itemView.findViewById(R.id.image_view);
+            ButterKnife.bind(this,itemView);
 
         }
     }

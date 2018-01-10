@@ -5,66 +5,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-import android.widget.Button;
-
 import com.example.yildirim.recyclerview.adapter.SimpleRecyclerAdapter;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnDown, btnUp, btnRight, btnLeft;
-    RecyclerView recyclerView;
-
+    @BindView(R.id.recyclerView)   RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        btnDown = (Button) findViewById(R.id.btnDown);
-        btnUp = (Button) findViewById(R.id.btnUp);
-        btnLeft = (Button) findViewById(R.id.btnLeft);
-        btnRight = (Button) findViewById(R.id.btnRight);
-
-
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        btnDown.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                runAnimation(recyclerView, 0);
-            }
-        });
-
-        btnUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                runAnimation(recyclerView, 1);
-
-            }
-        });
-
-        btnLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                runAnimation(recyclerView, 2);
-
-            }
-        });
-
-        btnRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                runAnimation(recyclerView, 3);
-
-            }
-        });
-
-
 
     }
 
@@ -94,5 +52,26 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutAnimation(controller);
         recyclerView.getAdapter().notifyDataSetChanged();
         recyclerView.scheduleLayoutAnimation();
+    }
+
+    @OnClick(R.id.btnDown)
+    public void btnDown(){
+        runAnimation(recyclerView, 0);
+
+    }
+    @OnClick(R.id.btnUp)
+    public void btnUp(){
+        runAnimation(recyclerView, 1);
+
+    }
+    @OnClick(R.id.btnLeft)
+    public void btnLeft(){
+        runAnimation(recyclerView, 2);
+
+    }
+    @OnClick(R.id.btnRight)
+    public void btnRight(){
+        runAnimation(recyclerView, 3);
+
     }
 }
